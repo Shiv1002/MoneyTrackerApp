@@ -1,157 +1,93 @@
-### Project Overview
+# Project Overview
 
-The money tracker webapp is a tool that allows users to keep track of their financial transactions. The app offer features to add, view, edit, and delete transactions, categorize them, and generate reports to help users understand their spending habits.
+## Table of Contents
 
-### Objectives
+- [Introduction](#introduction)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Usage](#usage)
+- [Contributing](#contributing)
 
-- **Primary Objective**: To provide users with an intuitive and reliable platform to track their income and expenses.
-- **Secondary Objective**: To generate insightful reports and visualizations that help users manage their finances better.
-- **Tertiary Objective**: To ensure user data is secure and the website is performant and scalable.
+## Introduction
 
-### Requirements
+The Money Tracker Webapp is a tool that allows users to keep track of their financial transactions. The app offer features to add, view, edit, and delete transactions, categorize them, and generate reports to help users understand their spending habits.
 
-#### Functional Requirements
+## Prerequisites
 
-1. **User Registration and Authentication**
+Before you begin, ensure you have met the following requirements:
 
-   - Users can create an account using email and password.
-   - Users can log in and log out securely.
-   - Password recovery and reset functionality.
+- **Node.js**: Ensure you have Node.js installed. You can download it from [Node.js official website](https://nodejs.org/).
+- **npm**: npm is installed with Node.js. To verify, run `npm -v` in your terminal.
+- **Git**: Make sure you have Git installed. You can download it from [Git official website](https://git-scm.com/).
 
-2. **Dashboard**
+## Installation
 
-   - A summary view of the user's financial status, including total income, expenses, and current balance.
-   - Recent transactions overview.
+Follow these steps to get a copy of the project up and running on your local machine for development and testing purposes.
 
-3. **Transaction Management**
+### 1. Clone the Repository
 
-   - Add new transactions with details like amount, date, category, and description.
-   - View a list of all transactions.
-   - Edit and delete transactions.
-   - Categorize transactions (e.g., Food, Transport, Utilities).
+First, clone the repository to your local machine using Git:
 
-4. **Categories Management**
+```bash
+git clone https://github.com/Shiv1002/MoneyTrackerApp.git
+```
 
-   - Pre-defined categories.
-   - Ability to add custom categories.
+### 2. Navigate to the Project Directory
 
-5. **Reporting and Analytics**
+Change your directory to the project folder:
 
-   - Generate monthly, quarterly, and yearly reports.
-   - Visual charts and graphs to show spending trends.
-   - Export reports as PDF or CSV.
+```bash
+cd MoneyTrackerApp
+```
 
-6. **Settings**
-   - User profile management (name, email, password).
-   - Notification settings (email alerts for transactions, summary reports).
+### 3. Install Dependencies
 
-#### Non-Functional Requirements
+Install the necessary dependencies using npm:
 
-1. **Performance**
+```bash
+npm install
+```
 
-   - The application should be responsive and load within 2 seconds.
-   - Efficient database queries to handle a large number of transactions.
+## Configuration
 
-2. **Security**
+### Adding the `.env` File
 
-   - Secure password storage (e.g., bcrypt).
-   - Protection against SQL injection, XSS, and CSRF attacks.
-   - HTTPS for secure data transmission.
+This project uses environment variables for configuration. You need to create a `.env` file in the root directory of the project. This file should contain all necessary environment variables.
 
-3. **Scalability**
+1. Create a `.env` file in the root of your project:
 
-   - The architecture should allow for scaling, with consideration for increasing users and transactions.
-   - Use of a scalable database solution (e.g., MongoDB, PostgreSQL).
+```bash
+touch .env
+```
 
-4. **Usability**
+2. Open the `.env` file in your preferred text editor and add the required environment variables. For example:
 
-   - Intuitive and user-friendly interface.
-   - Mobile-friendly design.
+```env
+# Example .env file
+PORT=3000
+DATABASE_URL=mongodb://localhost:27017/your-database
+JWT_SECRET=your_secret_key
+```
 
-5. **Maintainability**
-   - Clean and well-documented code.
-   - Modular structure for easy updates and feature additions.
+Make sure to replace the values with your actual configuration settings.
 
-#### Technical Requirements
+## Usage
 
-1. **Frontend**
+To start the application, run the following command:
 
-   - HTML5, CSS3, JavaScript.
-   - Responsive design using CSS frameworks like Bootstrap or Tailwind CSS.
-   - JavaScript framework/library for dynamic functionalities (optional: React, Vue.js).
+```bash
+npm start
+```
 
-2. **Backend**
+Your application should now be running on the port specified in your `.env` file. Open your browser and navigate to `http://localhost:1002` (or the port you specified) to see the application in action.
 
-   - Node.js and Express.js for server-side logic.
-   - RESTful API endpoints for interacting with the frontend.
-   - Data validation and sanitization.
+## Contributing
 
-3. **Database**
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-   - Choice of database (e.g., MongoDB for NoSQL or PostgreSQL/MySQL for SQL).
-   - Schema design for users, transactions, and categories.
-
-4. **Other Tools and Libraries**
-
-   - Authentication using libraries like Passport.js.
-   - Charting libraries for visualization (e.g., Chart.js, D3.js).
-   - PDF generation (e.g., pdfkit).
-   - Environment variable management (e.g., dotenv).
-
-5. **Development Tools**
-   - Version control with Git.
-   - Task runners/build tools (e.g., npm scripts, Webpack).
-   - Linting and formatting tools (e.g., ESLint, Prettier).
-
-### Scope
-
-- **Phase 1: Initial Development**
-
-  - Basic user authentication.
-  - Core transaction management features.
-  - Dashboard with a summary view.
-
-- **Phase 2: Advanced Features**
-
-  - Detailed reporting and analytics.
-  - Custom categories.
-  - Profile and settings management.
-
-- **Phase 3: Enhancements**
-  - Mobile-friendly design.
-  - Performance optimizations.
-  - Additional security features.
-
-### Implementation Plan
-
-1. **Setup and Configuration**
-
-   - Set up Node.js and Express.js project.
-   - Configure the database.
-   - Set up version control.
-
-2. **Authentication Module**
-
-   - Implement user registration and login.
-   - Set up session management.
-
-3. **Core Features**
-
-   - Develop transaction management features.
-   - Implement dashboard.
-
-4. **Additional Features**
-
-   - Add reporting and analytics.
-   - Implement settings and profile management.
-
-5. **Testing**
-
-   - Unit tests for backend logic.
-   - Integration tests for API endpoints.
-   - End-to-end tests for user flows.
-
-6. **Deployment**
-   - Choose a hosting provider (e.g., Heroku, AWS).
-   - Set up CI/CD pipelines.
-   - Monitor and maintain the application.
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
