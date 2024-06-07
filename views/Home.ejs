@@ -73,14 +73,14 @@
 
 
                 <h2>Recent Transactions</h2>
-                <div class="expense-list-container">
 
-                    <% if(!transactions) { %>
-                        <div class="">
-                            Add expenses
-                        </div>
-                        <% } else { %>
 
+                <% if(!transactions.length) { %>
+                    <h2 class="no-expense">
+                        No expenses Yet
+                    </h2>
+                    <% } else { %>
+                        <div class="expense-list-container">
                             <table>
                                 <tr>
                                     <th>Description</th>
@@ -111,10 +111,10 @@
                                     </tr>
                                     <%}%>
                             </table>
+                        </div>
+                        <% } %>
 
-                            <% } %>
 
-                </div>
 
 
             </section>

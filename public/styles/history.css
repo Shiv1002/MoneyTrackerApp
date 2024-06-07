@@ -63,3 +63,9 @@
     width: 100%;
   }
 }
+
+.no-history {
+  font-size: 3em;
+  color: var(--secondary-color);
+  margin: auto;
+}

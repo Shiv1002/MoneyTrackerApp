@@ -6,35 +6,42 @@
 
         <div class="his-container">
 
-            <h2>Your expense history</h2>
-            <div class="day-expense-container">
-                <%for(let doc of weekExpense) {%>
-                    <div class="day-expense">
-                        <header>
 
-                            <% if (doc.date==Intl.DateTimeFormat('en-in').format(Date.now())) {%>
-                                Today
-                                <%} else if (doc.date==Intl.DateTimeFormat('en-in').format(new Date().setDate(new
-                                    Date().getDate() -1 )) ) {%>
-                                    Yesterday
-                                    <%} else {%>
-                                        <%=doc.date%>
-                                            <%}%>
-                        </header>
-                        <div class="chart-container">
-                            <canvas class="expense-chart"></canvas>
-                        </div>
+            <% if(!weekExpense.length) {%>
+                <div class="no-history">
+                    You have No history of Expenses
+                </div>
+                <%} else {%>
+                    <h2>Your expense history</h2>
+                    <div class="day-expense-container">
+                        <%for(let doc of weekExpense) {%>
+                            <div class="day-expense">
+                                <header>
 
-                        <div class="expense-status">
-                            <span class="gained">You Gained <%=doc.status.gains%> &#x20b9; </span>
-                            <span class="spend">Your Expense <%=doc.status.spend%> &#x20b9; </span>
+                                    <% if (doc.date==Intl.DateTimeFormat('en-in').format(Date.now())) {%>
+                                        Today
+                                        <%} else if (doc.date==Intl.DateTimeFormat('en-in').format(new
+                                            Date().setDate(new Date().getDate() -1 )) ) {%>
+                                            Yesterday
+                                            <%} else {%>
+                                                <%=doc.date%>
+                                                    <%}%>
+                                </header>
+                                <div class="chart-container">
+                                    <canvas class="expense-chart"></canvas>
+                                </div>
 
-                        </div>
+                                <div class="expense-status">
+                                    <span class="gained">You Gained <%=doc.status.gains%> &#x20b9; </span>
+                                    <span class="spend">Your Expense <%=doc.status.spend%> &#x20b9; </span>
+
+                                </div>
+                            </div>
+                            <%}%>
+
+
                     </div>
                     <%}%>
-
-
-            </div>
 
         </div>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
