@@ -112,11 +112,18 @@ const getHistory = async (req, res, next) => {
     return res.redirect("/");
   }
 };
+
 const addCategory = async (req, res, next) => {
   console.log(req.body);
   const name = req.body.category;
   const type = req.body.categoryType;
-
+  // check if category exist
+  const old_cat = await Category.findOne({ name: name });
+  if (old_cat) {
+    req.flash("info", { text: "category already exist", type: "error" });
+    return res.redirect("/");
+  }
+  // add new category
   const new_cat = new Category({
     userId: req.session.userid,
     name: name,
