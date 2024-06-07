@@ -105,7 +105,7 @@ const getHistory = async (req, res, next) => {
       });
     }
 
-    return res.render("History", { history: history, weekExpense });
+    return res.render("history", { history: history, weekExpense });
   } catch (e) {
     console.log(e.message);
     req.flash("info", { text: e.message, type: "error" });

@@ -56,7 +56,7 @@ const signup = async (req, res, next) => {
   });
   // console.log(user);
   if (user.length) {
-    return res.render("SignUp", { text: "Account Exist", type: "error" });
+    return res.render("signup", { text: "Account Exist", type: "error" });
   }
   // filter confirm-password kkey
   filteredkeys = Object.keys(req.body).filter(
@@ -86,7 +86,7 @@ const signup = async (req, res, next) => {
 
     return res.redirect("login");
   } catch (e) {
-    return res.render("SignUp", { text: e.message, type: "error" });
+    return res.render("signup", { text: e.message, type: "error" });
   }
 };
 
