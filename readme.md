@@ -65,9 +65,8 @@ touch .env
 
 ```env
 # Example .env file
-PORT=3000
-DATABASE_URL=mongodb://localhost:27017/your-database
-JWT_SECRET=your_secret_key
+EXPRESS_SESSION_SECRET=add-your-secret
+MONGODB_URI=mongodb://127.0.0.1:27017/
 ```
 
 Make sure to replace the values with your actual configuration settings.
