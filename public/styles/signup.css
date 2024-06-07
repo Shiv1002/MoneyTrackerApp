@@ -22,7 +22,7 @@ body {
   justify-content: space-between;
   border-radius: 1rem;
   overflow: hidden;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px var(--light-color);
   background-color: white;
 }
 .signup-block-container {
@@ -146,4 +146,13 @@ form h2 {
 
 .toast-label {
   font-size: smaller;
+}
+
+@media screen and (width<=760px) {
+  .container {
+    width: 95%;
+  }
+  .container img {
+    display: none;
+  }
 }

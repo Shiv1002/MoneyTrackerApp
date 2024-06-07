@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.his-container {
+  height: 100dvh;
+  width: 100dvw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+.day-expense-container {
+  display: flex;
+  overflow-x: auto;
+  margin: auto 0;
+}
+.day-expense {
+  border-radius: 0.6rem;
+  box-shadow: 0px 0px 5px #bebebeae;
+  background-color: rgb(255, 255, 255);
+  margin: 0.6rem;
+  padding: 0.6rem;
+}
+.day-expense header {
+  padding: 1rem;
+  font-size: 1.5em;
+  text-align: center;
+}
+.expense-status {
+  height: 3rem;
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+}
+
+.expense-status span {
+  padding: 0.5rem;
+  margin: 0 0.3rem;
+  border-radius: 1rem;
+  align-content: center;
+}
+
+.expense-status span.gained {
+  background-color: greenyellow;
+}
+
+.expense-status span.spend {
+  background-color: red;
+}
+.chart-container {
+  width: 400px;
+  height: 400px;
+}
+
+@media screen and (width<=920px) {
+  .day-expense-container {
+    flex-direction: column;
+  }
+  .chart-container {
+    height: 50dvh;
+    width: 100%;
+  }
+}

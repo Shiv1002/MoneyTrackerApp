@@ -4,85 +4,120 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Home</title>
+        <link rel="stylesheet" href="/styles/home.css">
     </head>
 
     <body>
         <div class="container">
-            <%= categories %>
-                <header>
-                    Welcome <%= username %>,
+            <div class="profile">
+                <img src="/svg/user-alt.svg" alt="">
+                <div class="profile-actions">
+
+                    <div>
+                        <a href="/transactions/history/<%=userid%>">history</a>
+                    </div>
+                    <div>
                         <a href="/logout">logout</a>
-                </header>
-                <div class="form-container-addExpense">
-                    <form action="/transactions/add-expense" method="post">
-                        <!-- category -->
-                        <select name="category" id="category" required>
-                            <option value="" disabled selected>Category</option>
-
-                            <% for(let cat of categories) {%>
-                                <option value="<%=cat.name%>">
-                                    <%=cat.name%>
-                                </option>
-                                <%}%>
-
-
-                        </select>
-                        <!-- description -->
-                        <input type="text" placeholder="Description" name="description" required>
-                        <!-- amount -->
-                        <input type="number" placeholder="amount" required name="amount">
-                        <button>Submit</button>
-                    </form>
+                    </div>
 
                 </div>
 
-                <div class="form-container-addCategory">
-                    <form action="/transactions/add-category" method="post">
-                        <!-- category -->
-                        <input type="text" placeholder="add a category" name="category" required>
-                        <select name="categoryType" id="" required>
-                            <option value="" disabled selected>type</option>
-                            <option value="Income">Income</option>
-                            <option value="Expense">Expense</option>
-                        </select>
-                        <button>submit</button>
-                    </form>
+
+            </div>
+            <header>
+                <h2> Welcome <span>
+                        <%= username %>
+                    </span>
+            </header>
+            <section class="current-day">
+                <div class="form-containers">
+                    <div class="form-container-addExpense">
+                        <h3>Add Income/Expense</h3>
+                        <form action="/transactions/add-expense" method="post">
+                            <!-- category -->
+                            <select name="category" id="category" required>
+                                <option value="" disabled selected>Category</option>
+
+                                <% for(let cat of categories) {%>
+                                    <option value="<%=cat.name%>">
+                                        <%=cat.name%>
+                                    </option>
+                                    <%}%>
+
+
+                            </select>
+                            <!-- description -->
+                            <input type="text" placeholder="Description" name="description" required>
+                            <!-- amount -->
+                            <input type="number" placeholder="amount" required name="amount">
+                            <button>add</button>
+                        </form>
+
+                    </div>
+
+                    <div class="form-container-addCategory">
+                        <h3>Add Category</h3>
+                        <form action="/transactions/add-category" method="post">
+                            <!-- category -->
+                            <input type="text" placeholder="add a category" name="category" required>
+                            <select name="categoryType" id="" required>
+                                <option value="" disabled selected>type</option>
+                                <option value="Income">Income</option>
+                                <option value="Expense">Expense</option>
+                            </select>
+                            <button>add</button>
+                        </form>
+                    </div>
+
                 </div>
 
 
-
+                <h2>Recent Transactions</h2>
                 <div class="expense-list-container">
-                    <table>
-                        <tr>
-                            <th>Description</th>
-                            <th>Amount</th>
-                            <th>Date</th>
-                            <th>Category</th>
-                        </tr>
-                        <% for(let transac of transactions) { %>
-                            <tr>
-                                <td>
-                                    <%=transac.description%>
-                                </td>
-                                <td>
-                                    <%=transac.amount%>
-                                </td>
-                                <td><%=Intl.DateTimeFormat("en-in").format(transac.date)%></td>
-                                <td>
-                                    <%=transac.category%>
-                                </td>
-                                <td>
-                                    <form action="/transactions/delete-expense/<%=transac._id%>" method="post">
-                                        <button>
-                                            🗑</button>
-                                    </form>
-                                </td>
-                            </tr>
-                            <%}%>
 
+                    <% if(!transactions) { %>
+                        <div class="">
+                            Add expenses
+                        </div>
+                        <% } else { %>
 
-                    </table>
+                            <table>
+                                <tr>
+                                    <th>Description</th>
+                                    <th>Amount</th>
+                                    <th>Date</th>
+                                    <th>Category</th>
+                                </tr>
+
+                                <% for(let transac of transactions) { %>
+                                    <tr>
+                                        <td>
+                                            <%=transac.description%>
+                                        </td>
+                                        <td>
+                                            <%=transac.amount%>
+                                        </td>
+                                        <td><%=Intl.DateTimeFormat("en-in").format(transac.date)%></td>
+                                        <td>
+                                            <%=transac.category%>
+                                        </td>
+                                        <td>
+                                            <form action="/transactions/delete-expense/<%=transac._id%>" method="post"
+                                                title="delete-expense">
+                                                <button> <img src="/svg/trash-can.svg" alt=""> </button>
+
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    <%}%>
+                            </table>
+
+                            <% } %>
+
                 </div>
+
+
+            </section>
 
         </div>
 

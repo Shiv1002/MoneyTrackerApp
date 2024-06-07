@@ -1,0 +1,151 @@
+.profile {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  text-align: end;
+}
+.profile img {
+  height: 2rem;
+}
+.profile .profile-actions {
+  display: none;
+  border: 1px solid rgb(228, 228, 228);
+  border-radius: 1rem;
+  background-color: white;
+
+  overflow: hidden;
+}
+.profile .profile-actions > div {
+  padding: 0.6rem 1rem;
+  background-color: var(--light-color);
+}
+.profile .profile-actions > div a {
+  text-decoration: none;
+  color: black;
+}
+.profile:hover .profile-actions {
+  display: block;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  padding: 0.6rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.container header {
+  font-size: x-large;
+}
+.container header span {
+  color: var(--secondary-color);
+}
+.current-day {
+  padding: 0.6rem;
+  border-radius: 1rem;
+
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+.current-day > * {
+  margin: 0.6rem;
+}
+.form-containers {
+  display: flex;
+  justify-content: space-between;
+}
+.form-containers > * {
+  text-align: center;
+  padding: 0.6rem 0;
+  margin: 0 0.6rem;
+  border-radius: 0.6rem;
+  border: 1px solid rgb(226, 226, 226);
+  box-shadow: 0px 0px 5px #bebebeae;
+  background-color: white;
+
+  height: fit-content;
+  flex: 1;
+}
+.form-containers form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 0.6rem;
+  height: 100%;
+}
+
+.form-containers form input,
+.form-containers form select,
+.form-containers form button {
+  margin: 0.6rem 0;
+  border-radius: 0.6rem;
+  font-size: 1em;
+  font-family: "Noto-sans", sans-serif;
+  outline: none;
+  padding: 0.6rem;
+}
+.expense-list-container {
+  border-radius: 0.6rem;
+
+  box-shadow: 0px 0px 5px #bebebeae;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.6rem;
+  overflow-y: auto;
+}
+.expense-list-container table {
+  width: 100%;
+  border-radius: 1rem;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.expense-list-container table td,
+.expense-list-container table th {
+  height: 3rem;
+}
+.expense-list-container table td {
+  background-color: var(--light-color);
+}
+
+.form-containers button {
+  background-color: rgb(62, 188, 255);
+  color: white;
+}
+.form-containers button:hover {
+  background-color: rgba(62, 187, 255, 0.815);
+}
+.expense-list-container button {
+  height: 0;
+  border: 0;
+}
+.expense-list-container img {
+  height: 1rem;
+  border: 0;
+  border-radius: 0.5rem;
+  fill: white;
+  background-color: rgb(199, 0, 0);
+  padding: 0.5rem;
+}
+
+@media screen and (width<=760px) {
+  h2 {
+    font-size: larger;
+  }
+  .container {
+    width: 95%;
+  }
+  .form-containers {
+    flex-direction: column;
+  }
+  .form-containers > * {
+    margin: 0.6rem 0;
+  }
+}
+
+/* hld from netninja */
