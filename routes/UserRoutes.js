@@ -11,14 +11,14 @@ const userRoutes = router();
 userRoutes
   .route("/login")
   .get((req, res) => {
-    res.render("login", { toast: { ...req.flash("info")[0] } });
+    res.render("Login", { toast: { ...req.flash("info")[0] } });
   })
   .post(login);
 
 userRoutes
   .route("/signup")
   .get((req, res) => {
-    res.render("signup", { toast: { ...req.flash("info")[0] } });
+    res.render("SignUp", { toast: { ...req.flash("info")[0] } });
   })
   .post(signup);
 userRoutes.post("/check-username", checkUsername);

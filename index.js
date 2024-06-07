@@ -57,7 +57,7 @@ app.get(
       date: getTodayDate(),
     });
 
-    res.render("home", {
+    res.render("Home", {
       toast: { ...req.flash("info")[0] },
       userid,
       username: req.session.username,
