@@ -59,9 +59,10 @@ app.get(
 
     res.render("Home", {
       toast: { ...req.flash("info")[0] },
+      userid,
       username: req.session.username,
       categories,
-      transactions: transactions.transaction,
+      transactions: transactions?.transaction,
     });
   })
 );
