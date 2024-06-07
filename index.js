@@ -88,10 +88,11 @@ app.get("/logout", (req, res, next) => {
 
 app.use((err, req, res, next) => {
   console.error(err.message);
-  res.status(500).send("Internal server error!!");
+  return res.status(500).render("404");
 });
+
 app.use((req, res, next) => {
-  res.send("Not found!!");
+  res.render("404");
 });
 
 app.listen(PORT, () => {
