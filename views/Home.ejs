@@ -75,7 +75,7 @@
                 <h2>Recent Transactions</h2>
 
 
-                <% if(!transactions.length) { %>
+                <% if(!transactions || !transactions.length) { %>
                     <h2 class="no-expense">
                         No expenses Yet
                     </h2>
